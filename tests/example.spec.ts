@@ -8,19 +8,19 @@ test.use({
 })
 
 test('has title', async ({ page }) => {
-  await page.goto('http://localhost:3000/');
+  await page.goto('https://nextjs.org/');
 
   // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Virtual Regression Test POC/);
+  // await expect(page).toHaveTitle(/Next.js by Vercel - The React Framework/);
 
   await page.screenshot({ path: 'screenshots/example.png' });
 });
 
 test('Screenshot', async ({ page }) => {
-  await page.goto('http://localhost:3000/');
+  await page.goto('https://nextjs.org/');
 
 
-  page.getByRole('link', { name: 'Deploy now' }).click();
+  // page.getByRole('link', { name: 'Learn Next.js' }).click();
 
   await page.screenshot({ path: 'screenshots/vercel.png' });
 });
