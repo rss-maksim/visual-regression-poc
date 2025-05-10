@@ -20,9 +20,7 @@ test('Screenshot', async ({ page }) => {
   await page.goto('http://localhost:3000/');
 
 
-  page.getByLabel('Open Next.js Dev Tools').click();
-
-  await page.waitForTimeout(1000);
+  page.getByRole('link', { name: 'Deploy now' }).click();
 
   await page.screenshot({ path: 'screenshots/vercel.png' });
 });
