@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "pw:test:ui": "npx playwright test --ui"
+    "pw:test:ui": "npx playwright test --ui",
+    "archive-storybook": "CHROMATIC_ARCHIVE_LOCATION=test-results archive-storybook -c node_modules/@chromatic-com/playwright/dist/storybook-config",
+    "build-archive-storybook": "CHROMATIC_ARCHIVE_LOCATION=test-results build-archive-storybook -c node_modules/@chromatic-com/playwright/dist/storybook-config"
   },
   "dependencies": {
     "next": "15.3.2",
@@ -15,12 +17,14 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@chromatic-com/playwright": "^0.12.2",
     "@eslint/eslintrc": "^3",
     "@playwright/test": "^1.52.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "chromatic": "^11.28.2",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
     "lost-pixel": "^3.22.0",

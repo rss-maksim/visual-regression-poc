@@ -1,26 +1,25 @@
-import { test, expect, devices } from '@playwright/test';
+import { test, takeSnapshot } from "@chromatic-com/playwright"; 
 
-test.use({
-  ...devices['iPhone 13 Pro'],
-  locale: 'en-US',
-  geolocation: { longitude: 12.492507, latitude: 41.889938 },
-  permissions: ['geolocation'],
-})
-
-test('has title', async ({ page }) => {
+test('has title', async ({ page }, testInfo) => {
   await page.goto('https://nextjs.org/');
 
-  // Expect a title "to contain" a substring.
-  // await expect(page).toHaveTitle(/Next.js by Vercel - The React Framework/);
+  // await page.screenshot({ path: 'screenshots/example.png' });
 
-  await page.screenshot({ path: 'screenshots/example.png' });
+  page.getByRole('link', { name: 'Get Started' }).click();
+
+  await takeSnapshot(page, 'After click', testInfo); 
 });
 
-test('Screenshot', async ({ page }) => {
+test('Screenshot', async ({ page }, testInfo) => {
   await page.goto('https://nextjs.org/');
 
 
   // page.getByRole('link', { name: 'Learn Next.js' }).click();
 
-  await page.screenshot({ path: 'screenshots/vercel.png' });
+  await takeSnapshot(page, testInfo); 
+
+  page.getByRole('link', { name: 'Get Started' }).click();
+
+  await takeSnapshot(page, 'After click', testInfo); 
+  // await page.screenshot({ path: 'screenshots/vercel.png' });
 });
