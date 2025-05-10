@@ -20,7 +20,9 @@ test('Screenshot', async ({ page }) => {
   await page.goto('http://localhost:3000/');
 
 
-  page.getByRole('link', { name: 'Deploy now' }).click();
+  page.getByRole('link', { name: 'Read our docs' }).focus();
+
+  await page.waitForTimeout(1000);
 
   await page.screenshot({ path: 'screenshots/vercel.png' });
 });
