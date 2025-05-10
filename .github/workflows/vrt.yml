@@ -15,13 +15,19 @@ jobs:
           node-version: 20.x
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build app
         run: npm run build
 
       - name: Start server (in background)
         run: npm run start &
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Playwright tests
+        run: npx playwright test
 
       - name: Lost Pixel
         uses: lost-pixel/lost-pixel@v3.16.0
