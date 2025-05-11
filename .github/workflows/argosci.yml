@@ -3,7 +3,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Lost Pixel
+    name: ArgosCI
 
     steps:
       - name: Checkout
