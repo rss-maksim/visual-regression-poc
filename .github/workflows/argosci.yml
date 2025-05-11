@@ -3,7 +3,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Lost Pixel
+    name: ArgosCI
 
     steps:
       - name: Checkout
@@ -29,8 +29,3 @@ jobs:
 
       - name: Run Playwright tests
         run: npx playwright test --project=chromium
-
-      - name: Lost Pixel
-        uses: lost-pixel/lost-pixel@v3.16.0
-        env:
-          LOST_PIXEL_API_KEY: ${{ secrets.LOST_PIXEL_API_KEY }}
